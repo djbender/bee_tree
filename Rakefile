@@ -8,3 +8,10 @@ RSpec::Core::RakeTask.new(:spec)
 require "standard/rake"
 
 task default: %i[spec standard]
+
+task :console do
+  require "irb"
+  require_relative "./lib/bee_tree"
+  ENV["IRB_COMPLETOR"] = "type"
+  binding.irb
+end
